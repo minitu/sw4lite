@@ -46,7 +46,7 @@ ifeq ($(debug),yes)
    CFLAGS    = -g
 else
    FFLAGS   = -O3
-   CXXFLAGS = -O3 -x cu -I../src -c -dc -arch=$(gpuarch) -DSW4_CROUTINES -DSW4_CUDA -DSW4_NONBLOCKING -ccbin $(HOSTCOMP) -Xptxas -v
+   CXXFLAGS = -O3 -x cu -I../src -c -dc -arch=$(gpuarch) -DSW4_CROUTINES -DSW4_CUDA -DSW4_NONBLOCKING -ccbin $(HOSTCOMP)
    CFLAGS   = -O
 endif
 ifdef MPIINC
@@ -61,9 +61,11 @@ ifeq ($(openmp),yes)
    CFLAGS   += $(OMPOPT) -DSW4_OPENMP
 endif
 
-ifeq ($(cuda_aware_mpi),yes)
+ifeq ($(aware),yes)
    CXXFLAGS +=  -DSW4_CUDA_AWARE_MPI
    CFLAGS   +=  -DSW4_CUDA_AWARE_MPI
+   debugdir := $(debugdir)_aware
+   optdir   := $(optdir)_aware
 endif
 
 ifeq ($(openmp),yes)
