@@ -1,0 +1,2 @@
+For weak scaling, h is divided by 1.26 (cubic root of 2) to increase the problem
+size by 2 when the total number of GPUs are doubled.
