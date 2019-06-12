@@ -3576,6 +3576,8 @@ void EW::communicate_array_async(Sarray& u, int grid )
       int xtag2 = 346;
       int ytag1 = 347;
       int ytag2 = 348;
+
+      // XXX: Not parallelized with non-OpenMP build, which is what the documentation recommends
 #pragma omp parallel default(shared) if (threaded_mpi)
 #pragma omp sections 
       {
@@ -3602,6 +3604,179 @@ void EW::communicate_array_async(Sarray& u, int grid )
 		    bufs_type3[4*grid+3],
 		    m_cartesian_communicator, &status );
       }
+
+      // Non-blocking implementation
+      // XXX: ends up with incorrect results
+      /*
+      int count_x = std::get<0>(send_type3[2*grid]) * std::get<1>(send_type3[2*grid]);
+      int count_y = std::get<0>(send_type3[2*grid+1]) * std::get<1>(send_type3[2*grid+1]);
+      MPI_Request requests[8];
+      MPI_Status statuses[8];
+      int send_count = 0; recv_count = 0;
+
+      // Sends
+      if (m_neighbor[1] != MPI_PROC_NULL) {
+        getbuffer_device(&u(1,ie-(2*m_ppadding-1),jb,kb), std::get<0>(bufs_type3[4*grid]), send_type3[2*grid]);
+        MPI_Isend(std::get<0>(bufs_type3[4*grid]), count_x, MPI_DOUBLE, m_neighbor[1], xtag1,
+                  m_cartesian_communicator, &requests[0]);
+        send_count++;
+      }
+      if (m_neighbor[0] != MPI_PROC_NULL) {
+        getbuffer_device(&u(1,ib+m_ppadding,jb,kb), std::get<0>(bufs_type3[4*grid+1]), send_type3[2*grid]);
+        MPI_Isend(std::get<0>(bufs_type3[4*grid+1]), count_x, MPI_DOUBLE, m_neighbor[0], xtag2,
+                  m_cartesian_communicator, &requests[1]);
+        send_count++;
+      }
+      if (m_neighbor[3] != MPI_PROC_NULL) {
+        getbuffer_device(&u(1,ib,je-(2*m_ppadding-1),kb), std::get<0>(bufs_type3[4*grid+2]), send_type3[2*grid+1]);
+        MPI_Isend(std::get<0>(bufs_type3[4*grid+2]), count_y, MPI_DOUBLE, m_neighbor[3], ytag1,
+                  m_cartesian_communicator, &requests[2]);
+        send_count++;
+      }
+      if (m_neighbor[2] != MPI_PROC_NULL) {
+        getbuffer_device(&u(1,ib,jb+m_ppadding,kb), std::get<0>(bufs_type3[4*grid+3]), send_type3[2*grid+1]);
+        MPI_Isend(std::get<0>(bufs_type3[4*grid+3]), count_y, MPI_DOUBLE, m_neighbor[2], ytag2,
+                  m_cartesian_communicator, &requests[3]);
+        send_count++;
+      }
+
+      // Receives
+      if (m_neighbor[0] != MPI_PROC_NULL) {
+        MPI_Irecv(std::get<1>(bufs_type3[4*grid]), count_x, MPI_DOUBLE, m_neighbor[0], xtag1,
+                  m_cartesian_communicator, &requests[4]);
+        recv_count++;
+      }
+      if (m_neighbor[1] != MPI_PROC_NULL) {
+        MPI_Irecv(std::get<1>(bufs_type3[4*grid+1]), count_x, MPI_DOUBLE, m_neighbor[1], xtag2,
+                  m_cartesian_communicator, &requests[5]);
+        recv_count++;
+      }
+      if (m_neighbor[2] != MPI_PROC_NULL) {
+        MPI_Irecv(std::get<1>(bufs_type3[4*grid+2]), count_y, MPI_DOUBLE, m_neighbor[2], ytag1,
+                  m_cartesian_communicator, &requests[6]);
+        recv_count++;
+      }
+      if (m_neighbor[3] != MPI_PROC_NULL) {
+        MPI_Irecv(std::get<1>(bufs_type3[4*grid+3]), count_y, MPI_DOUBLE, m_neighbor[3], ytag2,
+                  m_cartesian_communicator, &requests[7]);
+        recv_count++;
+      }
+
+      // Wait for receives to complete
+      // TODO: Wait for recvs on-demand
+      int wait_idx;
+      for (int i = 0; i < recv_count; i++) {
+        MPI_Waitany(4, requests+4, &wait_idx, statuses+4);
+      }
+
+      // Transfer data from host to device
+      if (m_neighbor[0] != MPI_PROC_NULL)
+        putbuffer_device(&u(1,ib,jb,kb), std::get<1>(bufs_type3[4*grid]), send_type3[2*grid]);
+      if (m_neighbor[1] != MPI_PROC_NULL)
+        putbuffer_device(&u(1,ie-(m_ppadding-1),jb,kb), std::get<1>(bufs_type3[4*grid+1]), send_type3[2*grid]);
+      if (m_neighbor[2] != MPI_PROC_NULL)
+        putbuffer_device(&u(1,ib,jb,kb), std::get<1>(bufs_type3[4*grid+2]), send_type3[2*grid+1]);
+      if (m_neighbor[3] != MPI_PROC_NULL)
+        putbuffer_device(&u(1,ib,je-(m_ppadding-1),kb), std::get<1>(bufs_type3[4*grid+3]), send_type3[2*grid+1]);
+
+      // Wait for sends to complete
+      for (int i = 0; i < send_count; i++) {
+        MPI_Waitany(4, requests, &wait_idx, statuses);
+      }
+      */
+
+      // XXX: Manual reconstruction of original communication
+      // Doesn't work if waits are moved to the end
+      /*
+      int count_x = std::get<0>(send_type3[2*grid]) * std::get<1>(send_type3[2*grid]);
+      int count_y = std::get<0>(send_type3[2*grid+1]) * std::get<1>(send_type3[2*grid+1]);
+      MPI_Request requests[8];
+      MPI_Status statuses[8];
+
+      // AMPI_Sendrecv 0
+      if (m_neighbor[0] != MPI_PROC_NULL) {
+        MPI_Irecv(std::get<1>(bufs_type3[4*grid]), count_x, MPI_DOUBLE, m_neighbor[0], xtag1,
+                 m_cartesian_communicator, &requests[4]);
+      }
+
+      if (m_neighbor[1] != MPI_PROC_NULL) {
+        getbuffer_device(&u(1,ie-(2*m_ppadding-1),jb,kb), std::get<0>(bufs_type3[4*grid]), send_type3[2*grid]);
+        MPI_Isend(std::get<0>(bufs_type3[4*grid]), count_x, MPI_DOUBLE, m_neighbor[1], xtag1,
+                  m_cartesian_communicator, &requests[0]);
+      }
+
+      if (m_neighbor[0] != MPI_PROC_NULL) {
+        MPI_Wait(&requests[4], &statuses[4]);
+        putbuffer_device(&u(1,ib,jb,kb), std::get<1>(bufs_type3[4*grid]), send_type3[2*grid]);
+      }
+
+      if (m_neighbor[1] != MPI_PROC_NULL) {
+        MPI_Wait(&requests[0], &statuses[0]);
+      }
+
+      // AMPI_Sendrecv 1
+      if (m_neighbor[1] != MPI_PROC_NULL) {
+        MPI_Irecv(std::get<1>(bufs_type3[4*grid+1]), count_x, MPI_DOUBLE, m_neighbor[1], xtag2,
+                  m_cartesian_communicator, &requests[5]);
+      }
+
+      if (m_neighbor[0] != MPI_PROC_NULL) {
+        getbuffer_device(&u(1,ib+m_ppadding,jb,kb), std::get<0>(bufs_type3[4*grid+1]), send_type3[2*grid]);
+        MPI_Isend(std::get<0>(bufs_type3[4*grid+1]), count_x, MPI_DOUBLE, m_neighbor[0], xtag2,
+                  m_cartesian_communicator, &requests[1]);
+      }
+
+      if (m_neighbor[1] != MPI_PROC_NULL) {
+        MPI_Wait(&requests[5], &statuses[5]);
+        putbuffer_device(&u(1,ie-(m_ppadding-1),jb,kb), std::get<1>(bufs_type3[4*grid+1]), send_type3[2*grid]);
+      }
+
+      if (m_neighbor[0] != MPI_PROC_NULL) {
+        MPI_Wait(&requests[1], &statuses[1]);
+      }
+
+      // AMPI_Sendrecv 2
+      if (m_neighbor[2] != MPI_PROC_NULL) {
+        MPI_Irecv(std::get<1>(bufs_type3[4*grid+2]), count_y, MPI_DOUBLE, m_neighbor[2], ytag1,
+                  m_cartesian_communicator, &requests[6]);
+      }
+
+      if (m_neighbor[3] != MPI_PROC_NULL) {
+        getbuffer_device(&u(1,ib,je-(2*m_ppadding-1),kb), std::get<0>(bufs_type3[4*grid+2]), send_type3[2*grid+1]);
+        MPI_Isend(std::get<0>(bufs_type3[4*grid+2]), count_y, MPI_DOUBLE, m_neighbor[3], ytag1,
+                  m_cartesian_communicator, &requests[2]);
+      }
+
+      if (m_neighbor[2] != MPI_PROC_NULL) {
+        MPI_Wait(&requests[6], &statuses[6]);
+        putbuffer_device(&u(1,ib,jb,kb), std::get<1>(bufs_type3[4*grid+2]), send_type3[2*grid+1]);
+      }
+
+      if (m_neighbor[3] != MPI_PROC_NULL) {
+        MPI_Wait(&requests[2], &statuses[2]);
+      }
+
+      // AMPI_Sendrecv 3
+      if (m_neighbor[3] != MPI_PROC_NULL) {
+        MPI_Irecv(std::get<1>(bufs_type3[4*grid+3]), count_y, MPI_DOUBLE, m_neighbor[3], ytag2,
+                  m_cartesian_communicator, &requests[7]);
+      }
+
+      if (m_neighbor[2] != MPI_PROC_NULL) {
+        getbuffer_device(&u(1,ib,jb+m_ppadding,kb), std::get<0>(bufs_type3[4*grid+3]), send_type3[2*grid+1]);
+        MPI_Isend(std::get<0>(bufs_type3[4*grid+3]), count_y, MPI_DOUBLE, m_neighbor[2], ytag2,
+                  m_cartesian_communicator, &requests[3]);
+      }
+
+      if (m_neighbor[3] != MPI_PROC_NULL) {
+        MPI_Wait(&requests[7], &statuses[7]);
+        putbuffer_device(&u(1,ib,je-(m_ppadding-1),kb), std::get<1>(bufs_type3[4*grid+3]), send_type3[2*grid+1]);
+      }
+
+      if (m_neighbor[2] != MPI_PROC_NULL) {
+        MPI_Wait(&requests[3], &statuses[3]);
+      }
+      */
    }
    else if( u.m_nc == 4 )
    {
