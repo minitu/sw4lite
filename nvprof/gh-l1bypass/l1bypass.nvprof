@@ -1,0 +1,237 @@
+==47517== NVPROF is profiling process 47517, command: ./sw4lite ../tests/topo/gaussianHill-rev.in
+==47517== Profiling application: ./sw4lite ../tests/topo/gaussianHill-rev.in
+==47517== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   42.29%  5.52584s       200  27.629ms  27.570ms  28.922ms  _Z13forall3kernelIZ10rhs4sg_reviiiiiiiPiPKdS2_S2_PdS2_S2_S2_dS2_S2_S2_EUliiiE_EviiiiiiT_
+                   28.79%  3.76198s       100  37.620ms  37.374ms  38.176ms  _ZN4RAJA8internal23CudaKernelLauncherFixedILm256ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi256EEEJNS5_4TileILl0ENS5_10tile_fixedILl1EEENS_19cuda_block_xyz_loopILi2EEEJNS9_ILl1ENSA_ILl4EEENSC_ILi1EEEJNS9_ILl2ENSA_ILl64EEENSC_ILi0EEEJNS5_3ForILl0ENS_20cuda_thread_xyz_loopILi2ELi1EEEJNSI_ILl1ENSJ_ILi1ELi1EEEJNSI_ILl2ENSJ_ILi0ELi1EEEJNSI_ILl3ENS_6policy10sequential8seq_execEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES18_S18_S18_EEENS11_IJEEEJZN2EW18addsgd4fort_indrevEiiiiiiPdS1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_dEUliiiiE_EEENS0_25CudaStatementListExecutorIS1E_NS4_IJSY_EEEEEEEvT0_
+                    5.49%  716.77ms       200  3.5839ms  2.0137ms  4.8938ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm1024ENS_9Iterators16numeric_iteratorIllPlEEZN2EW9dpdmtfortEiiiiiiPKdSA_SA_PddEUlmE_lEEvT1_T0_T2_
+                    4.33%  565.45ms       200  2.8272ms  307.77us  5.3612ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm1024ENS_9Iterators16numeric_iteratorIllPlEEZN2EW8predfortEiiiiiiPdS9_S9_S9_S9_S9_dEUlmE_lEEvT1_T0_T2_
+                    3.50%  457.74ms       200  2.2887ms  248.25us  4.3478ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm1024ENS_9Iterators16numeric_iteratorIllPlEEZN2EW8corrfortEiiiiiiPdS9_S9_S9_dEUlmE_lEEvT1_T0_T2_
+                    3.44%  450.00ms       200  2.2500ms  1.5781ms  11.704ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE0_EviiiiiiT_
+                    2.43%  317.42ms       200  1.5871ms  1.5722ms  1.6732ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE1_EviiiiiiT_
+                    2.31%  302.11ms       200  1.5106ms  772.25us  3.3592ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE_EviiiiiiT_
+                    2.09%  272.46ms       200  1.3623ms  1.3527ms  1.4295ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE2_EviiiiiiT_
+                    1.63%  213.02ms       405  525.96us  52.223us  12.680ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm256ENS_9Iterators16numeric_iteratorIllPlEEZN6Sarray11set_to_zeroEvEUlmE_lEEvT1_T0_T2_
+                    1.54%  200.94ms       100  2.0094ms  1.9760ms  2.0415ms  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW19addsgd4cfort_indrevEiiiiiiPdS17_S17_S17_S17_S17_S17_S17_S17_S17_S17_dEUliiiE_EEENS0_25CudaStatementListExecutorIS19_NS4_IJST_EEEEEEEvT0_
+                    0.71%  92.571ms       400  231.43us  23.584us  444.35us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.70%  91.838ms       400  229.60us  22.656us  440.89us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE0_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.46%  60.105ms      2000  30.052us  1.1830us  2.7005ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm256ENS_9Iterators16numeric_iteratorIllPlEEZN2EW20cartesian_bc_forcingEdRSt6vectorIPPdSaISB_EERS9_IP6SourceSaISG_EEEUliE0_lEEvT1_T0_T2_
+                    0.08%  10.507ms       400  26.267us  3.9360us  51.136us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE1_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.08%  10.431ms       400  26.077us  3.5520us  51.456us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE2_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.05%  6.3283ms       200  31.641us  31.104us  34.048us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm1024ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi1024EEEJNS5_4TileILl0ENS5_10tile_fixedILl32EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSF_ILl1ENSG_ILi1EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEESY_EEENSR_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS13_S13_S13_dS13_S13_S13_S13_S13_S13_dddS13_S13_EUliiE_EEENS0_25CudaStatementListExecutorIS17_NS4_IJSO_EEEEEEEvT0_
+                    0.04%  5.6970ms        12  474.75us  56.511us  892.98us  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm256ENS_9Iterators16numeric_iteratorIllPlEEZN6Sarray9set_valueEdEUlmE_lEEvT1_T0_T2_
+                    0.02%  2.4957ms       200  12.478us  11.232us  174.30us  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm32ENS_9Iterators16numeric_iteratorIllPlEEZN2EW12ForceOffloadEdRSt6vectorI6SarraySaISA_EES9_IP15GridPointSourceSaISF_EEbEUliE0_lEEvT1_T0_T2_
+                    0.01%  1.1192ms       200  5.5960us  5.3440us  6.4000us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE4_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.00%  429.95us         1  429.95us  429.95us  429.95us  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm256ENS_9Iterators16numeric_iteratorIllPlEEZN2EW12ForceOffloadEdRSt6vectorI6SarraySaISA_EES9_IP15GridPointSourceSaISF_EEbEUliE_lEEvT1_T0_T2_
+      API calls:   93.63%  14.0759s      5223  2.6950ms  4.9820us  110.12ms  cudaStreamSynchronize
+                    3.40%  511.09ms      4834  105.73us  5.9200us  21.511ms  cudaMemPrefetchAsync
+                    1.74%  261.14ms       276  946.17us  9.6620us  256.81ms  cudaMallocManaged
+                    0.52%  78.110ms      6418  12.170us  9.2610us  111.54us  cudaLaunchKernel
+                    0.38%  57.117ms        26  2.1968ms  25.614us  6.3285ms  cudaFree
+                    0.29%  43.803ms        48  912.56us  7.6150us  2.3952ms  cudaHostAlloc
+                    0.01%  1.4745ms      5419     272ns     219ns  3.3420us  cudaPeekAtLastError
+                    0.01%  1.2783ms         1  1.2783ms  1.2783ms  1.2783ms  cudaGetDeviceProperties
+                    0.01%  1.2551ms        96  13.073us     217ns  513.93us  cuDeviceGetAttribute
+                    0.01%  1.2043ms       142  8.4810us  6.5090us  26.766us  cudaDeviceSynchronize
+                    0.01%  1.0111ms         1  1.0111ms  1.0111ms  1.0111ms  cuDeviceTotalMem
+                    0.00%  107.43us         1  107.43us  107.43us  107.43us  cuDeviceGetName
+                    0.00%  50.656us         2  25.328us  4.5100us  46.146us  cudaMemAdvise
+                    0.00%  3.5490us         1  3.5490us  3.5490us  3.5490us  cuDeviceGetPCIBusId
+                    0.00%  2.0140us         3     671ns     486ns     991ns  cuDeviceGetCount
+                    0.00%  1.4060us         1  1.4060us  1.4060us  1.4060us  cudaGetDevice
+                    0.00%     963ns         2     481ns     342ns     621ns  cuDeviceGet
+
+==47517== Unified Memory profiling result:
+Device "Tesla V100-SXM2-16GB (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+   10420  306.26KB  64.000KB  2.0000MB  3.043396GB  76.68829ms  Host To Device
+   27237  89.026KB  64.000KB  960.00KB  2.312500GB  95.90509ms  Device To Host
+    3596         -         -         -           -  776.0687ms  Gpu page fault groups
+       1  64.000KB  64.000KB  64.000KB  64.00000KB           -  Remote mapping to device
+Total CPU Page faults: 20824
+Total remote mappings from CPU: 1
+
+==47517== NVTX result:
+==47517==   Thread "<unnamed>" (id = 311808)
+==47517==     Domain "<unnamed>"
+==47517==       Range "AMPI_SENDRECV"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  649.62us      1624     400ns     322ns  4.0230us  AMPI_SENDRECV
+No kernels were profiled in this range.
+No API activities were profiled in this range.
+
+==47517==       Range "COMM_ARRAY"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  1.6168ms       406  3.9820us  3.2160us  10.949us  COMM_ARRAY
+No kernels were profiled in this range.
+No API activities were profiled in this range.
+
+==47517==       Range "EW::PREFETCH"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  276.45us        22  12.565us  7.7160us  23.868us  EW::PREFETCH
+No kernels were profiled in this range.
+No API activities were profiled in this range.
+
+==47517==       Range "EW::bcfortsg_indrev"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  257.79ms       400  644.49us  189.99us  2.4123ms  EW::bcfortsg_indrev
+ GPU activities:   43.50%  92.571ms       400  231.43us  23.584us  444.35us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                   43.16%  91.838ms       400  229.60us  22.656us  440.89us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE0_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    4.94%  10.507ms       400  26.267us  3.9360us  51.136us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE1_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    4.90%  10.431ms       400  26.077us  3.5520us  51.456us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE2_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    2.97%  6.3283ms       200  31.641us  31.104us  34.048us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm1024ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi1024EEEJNS5_4TileILl0ENS5_10tile_fixedILl32EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSF_ILl1ENSG_ILi1EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEESY_EEENSR_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS13_S13_S13_dS13_S13_S13_S13_S13_S13_dddS13_S13_EUliiE_EEENS0_25CudaStatementListExecutorIS17_NS4_IJSO_EEEEEEEvT0_
+                    0.53%  1.1192ms       200  5.5960us  5.3440us  6.4000us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE4_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+      API calls:  100.00%  26.230ms      2000  13.114us  11.564us  20.685us  cudaLaunchKernel
+
+==47517==       Range "ForceOffload"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  103.11ms       100  1.0311ms  1.0277ms  1.0783ms  ForceOffload
+ GPU activities:   98.77%  93.935ms       200  469.67us  52.223us  887.22us  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm256ENS_9Iterators16numeric_iteratorIllPlEEZN6Sarray11set_to_zeroEvEUlmE_lEEvT1_T0_T2_
+                    1.23%  1.1704ms       100  11.703us  11.264us  12.832us  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm32ENS_9Iterators16numeric_iteratorIllPlEEZN2EW12ForceOffloadEdRSt6vectorI6SarraySaISA_EES9_IP15GridPointSourceSaISF_EEbEUliE0_lEEvT1_T0_T2_
+      API calls:  100.00%  3.8360ms       300  12.786us  11.068us  38.052us  cudaLaunchKernel
+
+==47517==       Range "ForceOffload::FirstCall"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  955.29us         1  955.29us  955.29us  955.29us  ForceOffload::FirstCall
+ GPU activities:  100.00%  429.95us         1  429.95us  429.95us  429.95us  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm256ENS_9Iterators16numeric_iteratorIllPlEEZN2EW12ForceOffloadEdRSt6vectorI6SarraySaISA_EES9_IP15GridPointSourceSaISF_EEbEUliE_lEEvT1_T0_T2_
+      API calls:  100.00%  22.508us         1  22.508us  22.508us  22.508us  cudaLaunchKernel
+
+==47517==       Range "ForceOffload::set_to_zero"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  199.31ms       200  996.53us  993.56us  1.0305ms  ForceOffload::set_to_zero
+ GPU activities:  100.00%  187.88ms       400  469.69us  52.223us  891.19us  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm256ENS_9Iterators16numeric_iteratorIllPlEEZN6Sarray11set_to_zeroEvEUlmE_lEEvT1_T0_T2_
+      API calls:  100.00%  5.3932ms       400  13.483us  11.068us  38.052us  cudaLaunchKernel
+
+==47517==       Range "LOOP-0"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  102.68ms       400  256.70us  43.794us  1.7618ms  LOOP-0
+ GPU activities:  100.00%  92.571ms       400  231.43us  23.584us  444.35us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+      API calls:  100.00%  5.5348ms       400  13.837us  12.677us  20.685us  cudaLaunchKernel
+
+==47517==       Range "LOOP-1"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  100.18ms       400  250.44us  42.388us  476.17us  LOOP-1
+ GPU activities:  100.00%  91.838ms       400  229.60us  22.656us  440.89us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE0_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+      API calls:  100.00%  5.2621ms       400  13.155us  12.277us  17.970us  cudaLaunchKernel
+
+==47517==       Range "RHS4SG_REV:1"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  2.9757ms       200  14.878us  13.348us  21.964us  RHS4SG_REV:1
+ GPU activities:  100.00%  5.52584s       200  27.629ms  27.570ms  28.922ms  _Z13forall3kernelIZ10rhs4sg_reviiiiiiiPiPKdS2_S2_PdS2_S2_S2_dS2_S2_S2_EUliiiE_EviiiiiiT_
+      API calls:  100.00%  2.6561ms       200  13.280us  11.844us  19.687us  cudaLaunchKernel
+
+==47517==       Range "TIME STEP"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  15.8094s       100  158.09ms  156.22ms  256.06ms  TIME STEP
+ GPU activities:   42.39%  5.52584s       200  27.629ms  27.570ms  28.922ms  _Z13forall3kernelIZ10rhs4sg_reviiiiiiiPiPKdS2_S2_PdS2_S2_S2_dS2_S2_S2_EUliiiE_EviiiiiiT_
+                   28.86%  3.76198s       100  37.620ms  37.374ms  38.176ms  _ZN4RAJA8internal23CudaKernelLauncherFixedILm256ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi256EEEJNS5_4TileILl0ENS5_10tile_fixedILl1EEENS_19cuda_block_xyz_loopILi2EEEJNS9_ILl1ENSA_ILl4EEENSC_ILi1EEEJNS9_ILl2ENSA_ILl64EEENSC_ILi0EEEJNS5_3ForILl0ENS_20cuda_thread_xyz_loopILi2ELi1EEEJNSI_ILl1ENSJ_ILi1ELi1EEEJNSI_ILl2ENSJ_ILi0ELi1EEEJNSI_ILl3ENS_6policy10sequential8seq_execEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES18_S18_S18_EEENS11_IJEEEJZN2EW18addsgd4fort_indrevEiiiiiiPdS1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_dEUliiiiE_EEENS0_25CudaStatementListExecutorIS1E_NS4_IJSY_EEEEEEEvT0_
+                    5.50%  716.77ms       200  3.5839ms  2.0137ms  4.8938ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm1024ENS_9Iterators16numeric_iteratorIllPlEEZN2EW9dpdmtfortEiiiiiiPKdSA_SA_PddEUlmE_lEEvT1_T0_T2_
+                    4.34%  565.45ms       200  2.8272ms  307.77us  5.3612ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm1024ENS_9Iterators16numeric_iteratorIllPlEEZN2EW8predfortEiiiiiiPdS9_S9_S9_S9_S9_dEUlmE_lEEvT1_T0_T2_
+                    3.51%  457.74ms       200  2.2887ms  248.25us  4.3478ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm1024ENS_9Iterators16numeric_iteratorIllPlEEZN2EW8corrfortEiiiiiiPdS9_S9_S9_dEUlmE_lEEvT1_T0_T2_
+                    3.45%  450.00ms       200  2.2500ms  1.5781ms  11.704ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE0_EviiiiiiT_
+                    2.44%  317.42ms       200  1.5871ms  1.5722ms  1.6732ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE1_EviiiiiiT_
+                    2.32%  302.11ms       200  1.5106ms  772.25us  3.3592ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE_EviiiiiiT_
+                    2.09%  272.46ms       200  1.3623ms  1.3527ms  1.4295ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE2_EviiiiiiT_
+                    1.54%  200.94ms       100  2.0094ms  1.9760ms  2.0415ms  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW19addsgd4cfort_indrevEiiiiiiPdS17_S17_S17_S17_S17_S17_S17_S17_S17_S17_dEUliiiE_EEENS0_25CudaStatementListExecutorIS19_NS4_IJST_EEEEEEEvT0_
+                    1.44%  187.88ms       400  469.69us  52.223us  891.19us  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm256ENS_9Iterators16numeric_iteratorIllPlEEZN6Sarray11set_to_zeroEvEUlmE_lEEvT1_T0_T2_
+                    0.71%  92.571ms       400  231.43us  23.584us  444.35us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.70%  91.838ms       400  229.60us  22.656us  440.89us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE0_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.46%  60.105ms      2000  30.052us  1.1830us  2.7005ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm256ENS_9Iterators16numeric_iteratorIllPlEEZN2EW20cartesian_bc_forcingEdRSt6vectorIPPdSaISB_EERS9_IP6SourceSaISG_EEEUliE0_lEEvT1_T0_T2_
+                    0.08%  10.507ms       400  26.267us  3.9360us  51.136us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE1_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.08%  10.431ms       400  26.077us  3.5520us  51.456us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE2_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.05%  6.3283ms       200  31.641us  31.104us  34.048us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm1024ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi1024EEEJNS5_4TileILl0ENS5_10tile_fixedILl32EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSF_ILl1ENSG_ILi1EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEESY_EEENSR_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS13_S13_S13_dS13_S13_S13_S13_S13_S13_dddS13_S13_EUliiE_EEENS0_25CudaStatementListExecutorIS17_NS4_IJSO_EEEEEEEvT0_
+                    0.02%  2.4957ms       200  12.478us  11.232us  174.30us  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm32ENS_9Iterators16numeric_iteratorIllPlEEZN2EW12ForceOffloadEdRSt6vectorI6SarraySaISA_EES9_IP15GridPointSourceSaISF_EEbEUliE0_lEEvT1_T0_T2_
+                    0.01%  1.1192ms       200  5.5960us  5.3440us  6.4000us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE4_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.00%  429.95us         1  429.95us  429.95us  429.95us  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm256ENS_9Iterators16numeric_iteratorIllPlEEZN2EW12ForceOffloadEdRSt6vectorI6SarraySaISA_EES9_IP15GridPointSourceSaISF_EEbEUliE_lEEvT1_T0_T2_
+      API calls:  100.00%  77.801ms      6401  12.154us  9.2610us  111.54us  cudaLaunchKernel
+
+==47517==       Range "addSuperGridDamping"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  9.01215s       100  90.122ms  89.554ms  91.042ms  addSuperGridDamping
+ GPU activities:   94.93%  3.76198s       100  37.620ms  37.374ms  38.176ms  _ZN4RAJA8internal23CudaKernelLauncherFixedILm256ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi256EEEJNS5_4TileILl0ENS5_10tile_fixedILl1EEENS_19cuda_block_xyz_loopILi2EEEJNS9_ILl1ENSA_ILl4EEENSC_ILi1EEEJNS9_ILl2ENSA_ILl64EEENSC_ILi0EEEJNS5_3ForILl0ENS_20cuda_thread_xyz_loopILi2ELi1EEEJNSI_ILl1ENSJ_ILi1ELi1EEEJNSI_ILl2ENSJ_ILi0ELi1EEEJNSI_ILl3ENS_6policy10sequential8seq_execEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES18_S18_S18_EEENS11_IJEEEJZN2EW18addsgd4fort_indrevEiiiiiiPdS1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_S1C_dEUliiiiE_EEENS0_25CudaStatementListExecutorIS1E_NS4_IJSY_EEEEEEEvT0_
+                    5.07%  200.94ms       100  2.0094ms  1.9760ms  2.0415ms  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW19addsgd4cfort_indrevEiiiiiiPdS17_S17_S17_S17_S17_S17_S17_S17_S17_S17_dEUliiiE_EEENS0_25CudaStatementListExecutorIS19_NS4_IJST_EEEEEEEvT0_
+      API calls:  100.00%  2.9610ms       200  14.804us  12.339us  26.897us  cudaLaunchKernel
+
+==47517==       Range "addsgd4cfort_indrev"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  203.51ms       100  2.0351ms  2.0012ms  2.0801ms  addsgd4cfort_indrev
+ GPU activities:  100.00%  200.94ms       100  2.0094ms  1.9760ms  2.0415ms  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW19addsgd4cfort_indrevEiiiiiiPdS17_S17_S17_S17_S17_S17_S17_S17_S17_S17_dEUliiiE_EEENS0_25CudaStatementListExecutorIS19_NS4_IJST_EEEEEEEvT0_
+      API calls:  100.00%  1.6457ms       100  16.456us  14.427us  26.897us  cudaLaunchKernel
+
+==47517==       Range "bcfortsg_indrev_RAJA"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  246.23ms      1800  136.80us  23.192us  1.7630ms  bcfortsg_indrev_RAJA
+ GPU activities:   44.84%  92.571ms       400  231.43us  23.584us  444.35us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                   44.48%  91.838ms       400  229.60us  22.656us  440.89us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE0_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    5.09%  10.507ms       400  26.267us  3.9360us  51.136us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE1_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    5.05%  10.431ms       400  26.077us  3.5520us  51.456us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE2_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+                    0.54%  1.1192ms       200  5.5960us  5.3440us  6.4000us  _ZN4RAJA8internal23CudaKernelLauncherFixedILm512ENS0_8LoopDataIN4camp4listIJNS_9statement13CudaKernelExtINS_20cuda_explicit_launchILb0ELi0ELi512EEEJNS5_4TileILl0ENS5_10tile_fixedILl4EEENS_19cuda_block_xyz_loopILi0EEEJNS9_ILl1ESB_NSC_ILi1EEEJNS9_ILl2ENSA_ILl32EEENSC_ILi2EEEJNS5_3ForILl0ENS_22cuda_thread_xyz_directILi0EEEJNSH_ILl1ENSI_ILi1EEEJNSH_ILl2ENSI_ILi2EEEJNS5_6LambdaILl0EEEEEEEEEEEEEEEEEEEEEEEEEEENS3_5tupleIJNS_4impl4SpanINS_9Iterators16numeric_iteratorIllPlEElEES13_S13_EEENSW_IJEEEJZN2EW15bcfortsg_indrevEiiiiiiPiiiiPddP21boundaryConditionTypeS18_S18_S18_dS18_S18_S18_S18_S18_S18_dddS18_S18_EUliiiE4_EEENS0_25CudaStatementListExecutorIS1C_NS4_IJST_EEEEEEEvT0_
+      API calls:  100.00%  23.754ms      1800  13.196us  11.949us  20.685us  cudaLaunchKernel
+
+==47517==       Range "dpdmtfort"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  2.5886ms       200  12.943us  11.570us  16.331us  dpdmtfort
+ GPU activities:  100.00%  716.77ms       200  3.5839ms  2.0137ms  4.8938ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm1024ENS_9Iterators16numeric_iteratorIllPlEEZN2EW9dpdmtfortEiiiiiiPKdSA_SA_PddEUlmE_lEEvT1_T0_T2_
+      API calls:  100.00%  2.2191ms       200  11.095us  9.9080us  14.316us  cudaLaunchKernel
+
+==47517==       Range "enforceBC::PREFETCH"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  203.28ms       400  508.20us  87.543us  1.0319ms  enforceBC::PREFETCH
+No kernels were profiled in this range.
+No API activities were profiled in this range.
+
+==47517==       Range "evalDpDmInTIme"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  2.7622ms       100  27.622us  26.609us  30.341us  evalDpDmInTIme
+ GPU activities:  100.00%  716.77ms       200  3.5839ms  2.0137ms  4.8938ms  _ZN4RAJA6policy4cuda4impl18forall_cuda_kernelILm1024ENS_9Iterators16numeric_iteratorIllPlEEZN2EW9dpdmtfortEiiiiiiPKdSA_SA_PddEUlmE_lEEvT1_T0_T2_
+      API calls:  100.00%  2.2191ms       200  11.095us  9.9080us  14.316us  cudaLaunchKernel
+
+==47517==       Range "evalRHS"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  220.37ms       200  1.1018ms  122.77us  22.346ms  evalRHS
+ GPU activities:   80.46%  5.52584s       200  27.629ms  27.570ms  28.922ms  _Z13forall3kernelIZ10rhs4sg_reviiiiiiiPiPKdS2_S2_PdS2_S2_S2_dS2_S2_S2_EUliiiE_EviiiiiiT_
+                    6.55%  450.00ms       200  2.2500ms  1.5781ms  11.704ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE0_EviiiiiiT_
+                    4.62%  317.42ms       200  1.5871ms  1.5722ms  1.6732ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE1_EviiiiiiT_
+                    4.40%  302.11ms       200  1.5106ms  772.25us  3.3592ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE_EviiiiiiT_
+                    3.97%  272.46ms       200  1.3623ms  1.3527ms  1.4295ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE2_EviiiiiiT_
+      API calls:  100.00%  11.413ms      1000  11.412us  9.2610us  111.54us  cudaLaunchKernel
+
+==47517==       Range "evalRHS-2"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  12.783ms       100  127.83us  123.80us  152.32us  evalRHS-2
+ GPU activities:   83.79%  2.76180s       100  27.618ms  27.570ms  28.024ms  _Z13forall3kernelIZ10rhs4sg_reviiiiiiiPiPKdS2_S2_PdS2_S2_S2_dS2_S2_S2_EUliiiE_EviiiiiiT_
+                    4.82%  158.81ms       100  1.5881ms  1.5781ms  1.5994ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE0_EviiiiiiT_
+                    4.81%  158.69ms       100  1.5869ms  1.5750ms  1.6001ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE1_EviiiiiiT_
+                    4.13%  136.16ms       100  1.3616ms  1.3527ms  1.3723ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE2_EviiiiiiT_
+                    2.45%  80.639ms       100  806.39us  772.25us  864.63us  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE_EviiiiiiT_
+      API calls:  100.00%  5.3487ms       500  10.697us  9.2610us  16.149us  cudaLaunchKernel
+
+==47517==       Range "rhs4sg_rev"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  3.3204ms       200  16.602us  14.479us  105.03us  rhs4sg_rev
+ GPU activities:  100.00%  5.52584s       200  27.629ms  27.570ms  28.922ms  _Z13forall3kernelIZ10rhs4sg_reviiiiiiiPiPKdS2_S2_PdS2_S2_S2_dS2_S2_S2_EUliiiE_EviiiiiiT_
+      API calls:  100.00%  2.6561ms       200  13.280us  11.844us  19.687us  cudaLaunchKernel
+
+==47517==       Range "rhs4sgcurv_rev"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  9.9185ms       200  49.592us  44.776us  152.51us  rhs4sgcurv_rev
+ GPU activities:   33.53%  450.00ms       200  2.2500ms  1.5781ms  11.704ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE0_EviiiiiiT_
+                   23.65%  317.42ms       200  1.5871ms  1.5722ms  1.6732ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE1_EviiiiiiT_
+                   22.51%  302.11ms       200  1.5106ms  772.25us  3.3592ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE_EviiiiiiT_
+                   20.30%  272.46ms       200  1.3623ms  1.3527ms  1.4295ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE2_EviiiiiiT_
+      API calls:  100.00%  8.7565ms       800  10.945us  9.2610us  111.54us  cudaLaunchKernel
+
+==47517==       Range "rhs4sgcurv_rev::1"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  2.7897ms       200  13.948us  11.569us  113.57us  rhs4sgcurv_rev::1
+ GPU activities:  100.00%  302.11ms       200  1.5106ms  772.25us  3.3592ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE_EviiiiiiT_
+      API calls:  100.00%  2.4973ms       200  12.486us  10.297us  111.54us  cudaLaunchKernel
+
+==47517==       Range "rhs4sgcurv_rev::2"
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+          Range:  100.00%  6.7916ms       200  33.958us  31.333us  45.610us  rhs4sgcurv_rev::2
+ GPU activities:   43.27%  450.00ms       200  2.2500ms  1.5781ms  11.704ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE0_EviiiiiiT_
+                   30.53%  317.42ms       200  1.5871ms  1.5722ms  1.6732ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE1_EviiiiiiT_
+                   26.20%  272.46ms       200  1.3623ms  1.3527ms  1.4295ms  _Z13forall3kernelIZ14rhs4sgcurv_reviiiiiiPKdS1_S1_S1_S1_PdPKiS1_S1_S1_S1_S1_EUliiiE2_EviiiiiiT_
+      API calls:  100.00%  6.2592ms       600  10.432us  9.2610us  16.632us  cudaLaunchKernel
+
