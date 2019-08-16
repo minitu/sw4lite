@@ -46,7 +46,7 @@ ifeq ($(debug),yes)
    CFLAGS    = -g
 else
    FFLAGS   = -O3
-   CXXFLAGS = -O3 -x cu -I../src -c -dc -arch=$(gpuarch) -DSW4_CROUTINES -DSW4_CUDA -DSW4_NONBLOCKING -ccbin $(HOSTCOMP)
+   CXXFLAGS = -O3 -x cu -Xptxas -dlcm=cg -I../src -c -dc -arch=$(gpuarch) -DSW4_CROUTINES -DSW4_CUDA -DSW4_NONBLOCKING -ccbin $(HOSTCOMP)
    CFLAGS   = -O
 endif
 ifdef MPIINC
